@@ -2,7 +2,6 @@
 Um sistema utilizado para fazer transferências bancárias. O usuário poderá, após fazer seu cadastro, logar na plataforma e então ver seu saldo, gerar o extrato ou fazer uma transferência.
 
 ### TECNOLOGIAS UTILIZADAS
-- XAMPP
 ###### Linguagens
 - HTML5
 - CSS
