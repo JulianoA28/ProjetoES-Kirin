@@ -5,8 +5,8 @@ Um sistema utilizado para
 ###### Linguagens
 - HTML5
 - CSS
-- PHP 7.4.7
+- PHP
 ###### Banco de Dados
-- MySQL 8.0
+- MySQL
 ###### Servidor
-- Apache 2.4.43
+- Apache
