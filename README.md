@@ -10,11 +10,3 @@ Um sistema utilizado para fazer transferências bancárias. O usuário poderá, 
 - MySQL 8.0
 ###### Servidor
 - Apache 2.4.43
-###### Regras de commit
--
--
--
-##### Boas práticas de codificação
--
--
--
