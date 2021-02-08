@@ -1,5 +1,5 @@
 # Kirin
-Um sistema utilizado por uma biblioteca para organizar o cadastro, locais e locação de livros, permitindo o cadastro de funcionários via banco de dados e clientes por sistema web.
+Um sistema utilizado por uma biblioteca para organizar a locação de livros.
 
 ### TECNOLOGIAS UTILIZADAS
 ###### Linguagens
