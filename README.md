@@ -23,3 +23,11 @@ Deverá ser criado um issue, para cada nova funcionalidade/tarefa a ser feita. E
 
 #### Uso de Branches
 Neste projeto será utilizado somente o branch ```master```
+
+### PRÁTICAS DE PROGRAMAÇÃO
+- Faça pequenos programas para testar os comandos da linguagem.
+- Comece todo programa com um comentário descrevendo a finalidade do mesmo.
+- Critério de espaços nos recuos (4 espaços).
+- Declare cada varíavel em uma linha.
+- Coloque um espaço após cada vírgula.
+- Teste os programas exaustivamente.
