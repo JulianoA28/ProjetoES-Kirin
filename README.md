@@ -22,7 +22,10 @@ Deverá ser criado um issue, para cada nova funcionalidade/tarefa a ser feita. E
 - src: Pasta destinada ao código do sistema.
 
 #### Uso de Branches
-Neste projeto será utilizado somente o branch ```master```
+Neste projeto será utilizado somente três branches:
+- main
+- cliente (para alterações no sistema baseadas na tabela Cliente)
+- locacao (para alterações no sistema baseadas na tabela Locacao)
 
 ### PRÁTICAS DE PROGRAMAÇÃO
 - Faça pequenos programas para testar os comandos da linguagem.
