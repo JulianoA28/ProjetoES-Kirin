@@ -1,0 +1,107 @@
+
+.center {
+	display: block;
+	margin: auto;
+	width: 15%;
+	/*border: 3px solid green;*/
+	padding: 10px;	
+}
+
+#cl {
+	display: block;
+	margin: auto;
+	width: 15%;
+	/*border: 3px solid green;*/
+	padding: 9px;	
+}
+
+#cc {
+	display: block;
+	margin: auto;
+	width: 15%;
+	/*border: 3px solid green;*/
+	padding: 6px;	
+}
+
+.botao {
+	display: block;
+	padding: 10px 40px;
+	text-align: center;
+}
+
+.bg {
+	background: #D6E6EC;
+
+}
+
+.head {
+	background: #00A5DC;
+	width: 99%;
+	padding: 10px;
+}
+
+.voltar {
+	margin:
+}
+
+.popup {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.popup .popuptext {
+	visibility: hidden;
+	width: 160px;
+	background-color: #555;
+	color: #fff;
+	text-align: center;
+	border-radius: 6px;
+	padding: 8px 0;
+	position: absolute;
+	z-index: 1;
+	bottom: 125%;
+	left: 50%;
+	margin-left: -80px;
+}
+
+.popup .popuptext::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #555 transparent transparent transparent;
+}
+
+.popup .show {
+	visibility: visible;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
