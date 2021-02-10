@@ -1,4 +1,6 @@
 <?php
+// Arquivo: Cliente
+// Responsável por receber os dados do Cliente no cadastro
 
 class Cliente {
 	
