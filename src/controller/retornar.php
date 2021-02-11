@@ -1,14 +1,31 @@
 <?php
+
 // Arquivo: retornar
-// Tem a funcionalidade de redirecionar o usuário de acordo com o resultado do cadastro
+// Com base nos parametros ("value" de um botao) ele redireciona para uma certa pagina.
 
-$c = $_POST['bt'];
+$valor = $_POST["bt"];
 
-if ($c == "True") {
-	header('Location: ..\view\I_Login.html');
-}
-else {
-	header('Location: ..\view\I_Cadastro.html');
+switch ($valor) {
+	case "login":
+		header('Location: ..\view\I_Login.html');
+		break;
+		
+	case "cadastrofunc":
+		header('Location: ..\view\I_CadastroFuncionario.html');
+		break;
+		
+	case "inicial":
+		header('Location: ..\view\I_Inicial.html');
+		break;
+		
+	case "cadastrocliente":
+		header('Location: ..\view\I_CadastrarCliente.html');
+		break;
+		
+	case "consultarcliente":
+		header('Location: ..\view\I_ConsultarCliente.html');
+		break;
+		
 }
 
 ?>
