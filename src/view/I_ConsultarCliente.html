@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<form action="..\controller\consultarCliente.php" method="post">
+	<h2> Como deseja a ordenacao da consulta? </h2>
+	<div>
+		<label for="dados">Ordenar por:</label>
+		<select id="dados" name="dados">
+			<option value="Nome">Nome</option>
+			<option value="Email">Email</option>
+			<option value="Cpf">Cpf</option>
+		</select>
+	</div>
+		
+	<div>
+		<label for="ord">De maneira:</label>
+			
+		<input type="radio" id="c" name="ord" value="ASC" checked="unchecked">
+		<label for="c">Crescente</label>
+		
+		<input type="radio" id="d" name="ord" value="DESC">
+		<label for="d">Decrescente</label>
+	</div>
+	
+	<input type="submit" value="Pronto">
+	
+</form>
+
+<br><button type="button" onclick="location.href='I_Inicial.html'">Voltar</button>
+
+
+
+</html>
