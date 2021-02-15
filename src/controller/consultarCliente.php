@@ -20,8 +20,8 @@ while ($row = mysqli_fetch_array($result)) {
 	$cpf = $row['Cpf'];
 	$qtd = $qtd + 1;
 	echo "<tr><td> $row[Nome] </td><td> $row[Email] </td><td> $row[Cpf] </td>";
-	echo "<td><form action='rota.php' method='post'><button type='submit' name='btx' value='$cpf'>Excluir</button>";
-	echo "<form action='rota.php' method='post'><button type='submit' name='bta' value='$cpf'>Alterar</button></td></tr></form></form>";
+	echo "<td><form action='rotaCliente.php' method='post'><button type='submit' name='btx' value='$cpf'>Excluir</button>";
+	echo "<form action='rotaCliente.php' method='post'><button type='submit' name='bta' value='$cpf'>Alterar</button></td></tr></form></form>";
 }
 
 echo "</table><br><h4> Quantidade de clientes: $qtd</h4>";

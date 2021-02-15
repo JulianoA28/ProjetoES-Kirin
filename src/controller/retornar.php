@@ -25,6 +25,14 @@ switch ($valor) {
 	case "consultarcliente":
 		header('Location: ..\view\I_ConsultarCliente.html');
 		break;
+	
+	case "cadastrolocacao":
+		header('Location: ..\view\I_CadastrarLocacao.html');
+		break;
+		
+	case "consultarlocacao":
+		header('Location: ..\view\I_ConsultarLocacao.html');
+		break;
 		
 }
 
