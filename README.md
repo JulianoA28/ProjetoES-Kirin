@@ -22,7 +22,7 @@ Deverá ser criado um issue, para cada nova funcionalidade/tarefa a ser feita. E
 - src: Pasta destinada ao código do sistema.
 
 #### Uso de Branches
-O projeto terá foco no uso do branch ```main```
+O projeto terá foco no uso do branch ```main``` 
 Contudo poderão e deverão ser utilizados outros branches em certas situações.
 
 ### PRÁTICAS DE PROGRAMAÇÃO
