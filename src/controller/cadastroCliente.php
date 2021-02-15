@@ -39,7 +39,8 @@ if ($cadastradoCpf or $cadastradoEmail) {
 		$mensagem = "Email ja cadastrado!";
 	}
 	// Emite com base na variavel mensagem
-	echo "<h1>$mensagem</h1><br><form action='retornar.php' method='post'><br><button type='submit' value='cadastrocliente' name='bt'>Voltar</button>";
+	echo "<h1>$mensagem</h1><br><form action='retornar.php' method='post'><br><button type='submit' 
+	value='cadastrocliente' name='bt'>Voltar</button>";
 }
 
 // Caso nem o cpf nem o email tenham sido cadastrados
@@ -51,7 +52,8 @@ else {
 	else {
 		$mensagem = "Erro no cadastro! Tente novamente";
 	}
-	echo "<h1>$mensagem</h1><br><form action='retornar.php' method='post'><br><button type='submit' value='cadastrocliente' name='bt'>Voltar</button>";
+	echo "<h1>$mensagem</h1><br><form action='retornar.php' method='post'><br><button type='submit' 
+	value='cadastrocliente' name='bt'>Voltar</button>";
 }
 
 
