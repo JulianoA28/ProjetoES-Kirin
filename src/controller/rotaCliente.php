@@ -30,7 +30,7 @@ if ($key == 'btx' or $key == 'bts' or $key == 'btn') {
 else {
 
 	echo "<h2>Digite somente nos campos que deseja alterar!</h2>
-		<form method='post'>Novo nome: <input type='text' name='nnome'><br>Novo email: <input type='text' name='nemail'><br><br>
+		<form method='post'>Novo nome: <input type='text' name='nnome'><br>Novo email: <input type='email' name='nemail'><br><br>
 		<button type='submit' value=$cpf name='btv'>Voltar</button>
 		<button type='submit' value=$cpf name='bta'>Alterar</button></form>";
 

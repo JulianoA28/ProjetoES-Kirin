@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+
+<html class="bg">
+
+<head>
+<link rel="stylesheet" href="estilo.css">
+</head>
+
+<h1 class="center"> Cadastrar Locacao </h1>
+
+<form class="bg" action="..\controller\cadastroLocacao.php" method="post">
+	<div class="center">
+		<input type="text" placeholder="Cpf do Cliente" name="ccpf" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" required> <br><br>
+		<label> Digite ate 5 IDs! <br>(Separados por virgula)</label>
+		<input type="text" placeholder="Id do Livro" name="cidl"
+		pattern="[0-9]{6}|[0-9]{6},[0-9]{6}|[0-9]{6},[0-9]{6},[0-9]{6}|[0-9]{6},[0-9]{6},[0-9]{6},[0-9]{6}|[0-9]{6},[0-9]{6},[0-9]{6},[0-9]{6},[0-9]{6}" required> <br><br>
+		<input type="date" placeholder="Data Limite" name="cdata" required> <br><br>
+		<input type="submit" value="Cadastrar">
+		
+	</div>
+	
+
+</form>
+
+<br><br><button type="button" onclick="location.href='I_Inicial.html'"> Voltar </button>
+
+</html>
