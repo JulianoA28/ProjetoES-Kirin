@@ -1,16 +1,28 @@
 <?php
 
 include_once '..\persistence\connection.php';
-include_once '..\peristence\locacaoDAO.php';
+include_once '..\persistence\locacaoDAO.php';
 
-function excluir() {
+function excluir($id) {
 	
+	$conexao = new connection();
+	$conexao = $conexao->getConnection();
+	
+	$locacaoDAO = new locacaoDAO();
+	
+	return $locacaoDAO->excluir();
 	
 }
 
 
-function alterar() {
+function alterar($id, $cpf, $livros, $data) {
 	
+	$conexao = new connection();
+	$conexao = $conexao->getConnection();
+	
+	$locacaoDAO = new locacaoDAO();
+	
+	return $locacaoDAO->alterar($id, $cpf, $livros, $data, $conexao);
 	
 }
 
