@@ -2,6 +2,7 @@
 // Arquivo: funcionarioDAO
 // Tem como responsabilidade fazer as operacoes da tabela Funcionario no Banco de Dados
 
+// Importando o arquivo connection
 include_once 'connection.php';
 
 class funcionarioDAO {
@@ -59,16 +60,23 @@ class funcionarioDAO {
 		return False;
 	}
 	
+	// Funcao getAll para retornar todo conteudo da tabela Funcionario
 	function getAll($conn) {
+		
+		// Comando SQL
 		$sql = "SELECT * FROM funcionario WHERE 1";
 		
+		// Resultado da query
 		$result = $conn->query($sql);
 		
 		return $result;
 	
 	}
 	
+	// Funcao excluir que recebera o cpf do funcionario a ser excluido e um objeto da classe connection
 	function excluir($cpf, $conn) {
+		
+		// Comando SQL
 		$sql = "DELETE FROM funcionario WHERE Cpf = '$cpf'";
 		
 		if ($conn->query($sql) == TRUE) {
@@ -80,8 +88,6 @@ class funcionarioDAO {
 		
 	}
 		
-		
-
 }
 
 ?>

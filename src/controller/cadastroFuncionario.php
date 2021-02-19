@@ -1,9 +1,13 @@
 <?php
+// Arquivo: cadastroFuncionario.php
+// Tem como finalidade receber as informações de um funcionario e gerenciar o cadastro no banco de dados
 
+// Importando os arquivos necessarios
 include_once '..\persistence\connection.php';
 include_once '..\model\Funcionario.php';
 include_once '..\persistence\funcionarioDAO.php';
 
+// Recebendo os dados de um funcionario
 $nome = $_POST['cnome'];
 $email = $_POST['cemail'];
 $senha = $_POST['csenha'];
@@ -13,8 +17,10 @@ $cpf = $_POST['ccpf'];
 $conexao = new Connection();
 $conexao = $conexao->getConnection();
 
+// Criando um objeto de funcionario DAO
 $funcionarioDAO = new funcionarioDAO();
 
+// Instanciando um funcionario
 $funcionario = new Funcionario($nome, $email, $senha, $cpf);
 
 // Mensagem apos o cadastro (Sucesso/Erro)
