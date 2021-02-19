@@ -3,8 +3,10 @@
 // Arquivo: retornar
 // Com base nos parametros ("value" de um botao) ele redireciona para uma certa pagina.
 
+// Recebendo o valor do botao
 $valor = $_POST["bt"];
 
+// Redirecionando com base no valor
 switch ($valor) {
 	case "login":
 		header('Location: ..\view\I_Login.html');

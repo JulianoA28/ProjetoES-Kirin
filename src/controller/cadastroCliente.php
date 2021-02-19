@@ -1,17 +1,25 @@
 <?php
 
+// Arquivo: cadastroCliente.php
+// Tem como finalidade receber as informações de um cliente e gerenciar o cadastro no banco de dados
+
+// Importando os arquivos
 include_once '..\persistence\clienteDAO.php';
 include_once '..\model\Cliente.php';
 
+// Recebendo os dados de um cliente
 $nome = $_POST['cnome'];
 $email = $_POST['cemail'];
 $cpf = $_POST['ccpf'];
 
+// Estabelecendo uma conexao
 $conexao = new Connection();
 $conexao = $conexao->getConnection();
 
+// Criando um objeto de cliente DAO
 $clienteDAO = new clienteDAO();
 
+// Instanciando um cliente
 $cliente = new Cliente($nome, $email, $cpf);
 
 // Mensagem apos o cadastro (Sucesso/Erro)
@@ -55,6 +63,5 @@ else {
 	echo "<h1>$mensagem</h1><br><form action='retornar.php' method='post'><br><button type='submit' 
 	value='cadastrocliente' name='bt'>Voltar</button>";
 }
-
 
 ?>

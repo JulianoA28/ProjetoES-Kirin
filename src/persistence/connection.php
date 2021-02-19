@@ -1,6 +1,11 @@
 <?php
 
+// Arquivo: connection.php
+// Arquivo responsavel por estabelecer a conexao com o banco de dados
+
 class connection {
+	
+	// Atributos - Banco de Dados 'bdfinal'
 	private $servername="localhost";
 	private	$username="root";
 	private	$password="";
@@ -9,6 +14,8 @@ class connection {
 	
 	function __construct(){}
 	
+	// Funcao para inicializar uma conexao com o Banco de Dados (caso nao tenha sido inicializada)
+	// E entao retornar a conexao
 	function getConnection() {
 		if ($this->conn == null) {
 

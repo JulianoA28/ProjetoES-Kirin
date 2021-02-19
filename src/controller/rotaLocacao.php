@@ -1,9 +1,14 @@
 <?php
 
+// Arquivo: rotaLocacao.php
+// Tem como base receber o id de uma locacao e enviar os dados para um controller que ira realizar as acoes
+
+// Importando os arquivos
 include_once '..\persistence\connection.php';
 include_once '..\persistence\locacaoDAO.php';
 include_once '..\controller\locacaoController.php';
 
+//
 foreach($_POST as $key=>$value);
 $id = $value;
 
