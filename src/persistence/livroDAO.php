@@ -36,6 +36,18 @@ class livroDAO {
 			return FALSE;
 		}
 	}
+	
+	function desalocar($id, $conn) {
+		$sql = "UPDATE livro SET Locado=False WHERE Id='$id'";
+		
+		if ($conn->query($sql) == TRUE) {
+			return TRUE;
+		}
+		else {
+			return FALSE;
+		}
+		
+	}
 
 }
 
