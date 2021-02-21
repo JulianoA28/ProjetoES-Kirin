@@ -106,7 +106,7 @@ class locacaoDAO {
 		}
 		
 		// Se checar for false, indica que todos parametros de alteracao sao null
-		if (!checar) {
+		if (!$checar) {
 			return false;
 		}
 		
@@ -114,10 +114,10 @@ class locacaoDAO {
 		else {
 			
 			// Concatena-se todas strings
-			$sql = $sql . $strCpf . $strIdLivros . $strData;
+			$sql = $sql . $strCpf . $strIdLivros . $strData . "WHERE Id='$id'";
 			
 			// Realizando a query
-			if ($conn->query($sql)) {
+			if ($conn->query($sql) == TRUE) {
 				return true;
 			}
 			return false;
