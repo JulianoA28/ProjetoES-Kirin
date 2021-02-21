@@ -12,7 +12,7 @@ include_once '..\controller\clienteController.php';
 foreach($_POST as $key=>$value);
 $cpf = $value;
 
-// Caso as chaves sejam ou de exclusao ou pertecentes a esse bloco 'if' (Botoes Sim ou Nao - Confirmacao da exclusao)
+// Caso as chaves seja ou de exclusao ou pertecente a esse bloco 'if'
 if ($key == 'btx' or $key == 'bts' or $key == 'btn') {
 	
 	// Se os botoes de Sim ou Nao ainda nao foram pressionados
@@ -36,7 +36,7 @@ if ($key == 'btx' or $key == 'bts' or $key == 'btn') {
 	if (!isset($_POST['bts'])) {}
 	// Se for pressionado entrara nesse bloco 'else'
 	else {
-		// Tenta realizar a exclusao e envia para a interface correspondente ao retorno
+		// Realiza a exclusao e envia para a interface correspondente ao retorno
 		if (excluir($cpf)) {
 			header('Location: ..\view\IS_ExcluirCliente.html');	
 		}
@@ -89,7 +89,7 @@ else {
 			$email = $_POST['nemail'];
 		}
 		
-		// Tenta realizar a alteracao e emite a interface correspondente ao retorno
+		// Realiza a alteracao
 		if(alterar($cpf, $nome, $email)) {
 			header('Location: ..\view\IS_AlterarCliente.html');
 		}

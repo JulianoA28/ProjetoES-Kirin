@@ -24,7 +24,7 @@ $locacaoDAO = new locacaoDAO();
 $clienteDAO = new clienteDAO();
 $livroDAO = new livroDAO();
 
-// Instaciando uma locacao
+// Instaciando uma loacao
 $locacao = new Locacao($cpfCliente, $idLivros, $dataLimite);
 
 // Variavel para checar validez dos dados
