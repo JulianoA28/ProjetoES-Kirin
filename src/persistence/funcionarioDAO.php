@@ -50,13 +50,18 @@ class funcionarioDAO {
 		$sql = "SELECT Senha FROM funcionario WHERE Email = '$email'";
 		
 		$result = $conn->query($sql);
-		$row = $result->fetch_assoc();
-		$senhaDB = $row["Senha"];
 		
-		// Checando se a senha cadastrada com o Email recebido é igual a senha recebida.
-		if ($senhaDB == $senha) {
-			return True;
+		// Checando se o resultado nao esta vazio
+		if (mysqli_num_rows($result)==1) {
+			$row = $result->fetch_assoc();
+			$senhaDB = $row["Senha"];
+			// Checando se a senha cadastrada com o Email recebido é igual a senha recebida.
+			if ($senhaDB == $senha) {
+				return True;
+			}
+			
 		}
+		
 		return False;
 	}
 	
