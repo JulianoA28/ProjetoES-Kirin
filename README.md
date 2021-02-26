@@ -5,7 +5,7 @@ Um sistema utilizado por uma biblioteca para organizar a locação de livros.
 ##### Linguagens
 - HTML5
 - CSS
-- PHP
+- PHP 8.0.1
 ##### Banco de Dados
 - MariaDB - 10.4.17
 ##### Servidor
