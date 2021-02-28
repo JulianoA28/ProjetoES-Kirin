@@ -2,14 +2,18 @@
 Um sistema utilizado por uma biblioteca para organizar a locação de livros.
 
 ### TECNOLOGIAS UTILIZADAS
-##### Linguagens
+##### Linguagens (Sistema Geral)
 - HTML5
 - CSS
 - PHP 8.0.1
+- JavaScript
 ##### Banco de Dados
 - MariaDB - 10.4.17
 ##### Servidor
 - Apache - 2.4.46
+#### Teste
+- PHPUnit - 9.0.5
+- PHP 7.4.15
 
 ### REGRAS E PADRÕES DO USO DO GIT
 #### Criação de Issues
@@ -20,6 +24,7 @@ Deverá ser criado um issue, para cada nova funcionalidade/tarefa a ser feita. E
 - Padrões Adotados: Uma pasta que contém um arquivo com os padrões adotados.
 - Requisitos: Pasta principal da documentação com o Documento de Requisitos e Diagramas.
 - src: Pasta destinada ao código do sistema.
+- teste: Testes a serem feitos utilizando PHPUnit
 
 #### Uso de Branches
 O projeto terá foco no uso do branch ```main``` 
