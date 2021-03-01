@@ -5,6 +5,8 @@
 
 include_once '..\persistence\connection.php';
 include_once '..\persistence\clienteDAO.php';
+include_once '..\persistence\livroDAO.php';
+include_once '..\persistence\livrolocadoDAO.php';
 
 // Funcao responsavel por receber o cpf do cliente e realizar a exclusao
 function excluir($cpf) {
@@ -12,6 +14,21 @@ function excluir($cpf) {
 	// Estabelecendo uma conexao
 	$conexao = new connection();
 	$conexao = $conexao->getConnection();
+	
+	$livroDAO = new livroDAO();
+	
+	$livrolocadoDAO = new livrolocadoDAO();
+	
+	$result = $livrolocadoDAO->selecionar("*", "CpfCliente", $cpf, $conexao);
+	while($row = mysqli_fetch_array($result)) {
+		
+		$idLivro = $row['IdLivro'];
+		
+		// Desalocando os livros
+		$livroDAO->desalocar($idLivro, $conexao);
+	
+	}
+		
 	
 	// Criando um cliente DAO
 	$cDAO = new clienteDAO();

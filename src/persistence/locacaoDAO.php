@@ -16,15 +16,14 @@ class locacaoDAO {
 		
 		// Recebendo os atributos do objeto
 		$cpfCliente = $locacao->getCpfCliente();
-		$idLivros = $locacao->getIdLivros();
 		$dataLimite = $locacao->getDataLimite();
 		
 		// Comando SQL
-		$sql = "INSERT INTO locacao(Id, CpfCliente, IdLivro, DataLimite) VALUES (NULL,'$cpfCliente','$idLivros', '$dataLimite')";
+		$sql = "INSERT INTO locacao(Id, CpfCliente, DataLimite) VALUES (NULL,'$cpfCliente', '$dataLimite')";
 		
 		// Realizando a query
 		if ($conn->query($sql) == TRUE) {
-			return TRUE;
+			return $conn->insert_id;
 		}
 		else {
 			return FALSE;
@@ -39,7 +38,7 @@ class locacaoDAO {
 	function selecionar($campo1, $campo2, $valor, $conn) {
 		
 		// Comando SQL
-		$sql = "SELECT " . $campo1 . "FROM locacao WHERE ". $campo2 . " = '$valor'";
+		$sql = "SELECT " . $campo1 . " FROM locacao WHERE ". $campo2 . " = '$valor'";
 		
 		// Resultado da Query
 		$result = $conn->query($sql);
@@ -68,7 +67,7 @@ class locacaoDAO {
 	// - Nova string de livros (caso seja null, nao sera feita a alteracao nesse campo)
 	// - Nova data limite (caso seja null, nao sera feita alteracao nesse campo)
 	// - Um objeto da classe connection
-	function alterar($id, $cpf, $livros, $data, $conn) {
+	function alterar($id, $cpf, $data, $conn) {
 		
 		// Inicializando o comando SQL
 		$sql = "UPDATE locacao ";
@@ -78,7 +77,6 @@ class locacaoDAO {
 		
 		// Uma string para cada atributo alteravel
 		$strCpf = "";
-		$strIdLivros = "";
 		$strData = "";
 		
 		// Checando se o CPF nao e null
@@ -86,14 +84,6 @@ class locacaoDAO {
 			
 			// Caso nao, atribui o comando a sua string
 			$strCpf = "SET CpfCliente = '$cpf' ";
-			$checar = true;
-		}
-		
-		// Checando se os livros nao sao null
-		else if ($livros != null) {
-			
-			// Caso nao, atribui o comando a sua string
-			$strIdLivros = "SET IdLivro = '$livros' ";
 			$checar = true;
 		}
 		
@@ -114,7 +104,7 @@ class locacaoDAO {
 		else {
 			
 			// Concatena-se todas strings
-			$sql = $sql . $strCpf . $strIdLivros . $strData . "WHERE Id='$id'";
+			$sql = $sql . $strCpf . $strData . "WHERE Id='$id'";
 			
 			// Realizando a query
 			if ($conn->query($sql) == TRUE) {
