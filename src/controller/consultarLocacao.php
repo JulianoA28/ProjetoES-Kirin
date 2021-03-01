@@ -7,6 +7,7 @@
 include_once '..\persistence\connection.php';
 include_once '..\persistence\locacaoDAO.php';
 include_once '..\persistence\livroDAO.php';
+include_once '..\persistence\livrolocadoDAO.php';
 
 // Recebendo os dados de ordenacao
 $dados = $_POST['dados'];
@@ -19,6 +20,7 @@ $conexao = $conexao->getConnection();
 // Criando objetos DAO
 $locacaoDAO = new locacaoDAO();
 $livroDAO = new livroDAO();
+$livrolocadoDAO = new livrolocadoDAO();
 
 // Recebendo todos os dados da tabela locacao
 $result = $locacaoDAO->selecionarTudo($conexao, $dados, $ord);
@@ -28,7 +30,7 @@ $qtd = 0;
 
 // Imprimindo o inicio da tabela
 echo "<style> th, td { border: 1px solid black; border-collapse: collapse; }</style>";
-echo "<table><th> Id </th><th> CPF do Cliente </th><th> IDs dos Livros </th><th> Data Limite </th>";
+echo "<table><th> Id </th><th> CPF do Cliente </th><th> Livros </th><th> Data Limite </th>";
 
 // Para cada linha na tabela
 while ($row = mysqli_fetch_array($result)) {
@@ -43,12 +45,17 @@ while ($row = mysqli_fetch_array($result)) {
 	echo "<tr><td> $row[Id] </td><td> $row[CpfCliente] </td>";
 	echo "<td>";
 	
-	// Para cada livro, imprime o seu nome seguido do seu id
-	foreach(explode(",", $row['IdLivro']) as $idLivro) {
-		$result2 = $livroDAO->selecionar("Nome", $idLivro, $conexao);
-		$row2 = mysqli_fetch_array($result2);
-		echo "$row2[Nome] : $idLivro / / ";
+	$result2 = $livrolocadoDAO->selecionar("*", "IdLocacao", $id, $conexao);
+	
+	while ($row2 = mysqli_fetch_array($result2)) {
+		
+		$idLivro = $row2['IdLivro'];
+		$result3 = $livroDAO->selecionar("Nome", $idLivro, $conexao);
+		$row3 = mysqli_fetch_array($result3);
+		echo "$row3[Nome]: $idLivro &nbsp;";
+		
 	}
+	
 	echo "</td>";
 	
 	// Imprimindo a Data Limite

@@ -46,7 +46,7 @@ class clienteDAO {
 		
 		// Checando se ja ha alguem com esse valor (Email/Cpf) cadastro no BD.
 		if (mysqli_num_rows($resultado)==1) { 
-			return True;
+			return $resultado;
 		}
 		return False;
 		

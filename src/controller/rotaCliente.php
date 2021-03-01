@@ -6,6 +6,7 @@
 // Importando os arquivos
 include_once '..\persistence\connection.php';
 include_once '..\persistence\clienteDAO.php';
+include_once '..\persistence\locacaoDAO.php';
 include_once '..\controller\clienteController.php';
 
 // Guardando o cpf
@@ -18,8 +19,17 @@ if ($key == 'btx' or $key == 'bts' or $key == 'btn') {
 	// Se os botoes de Sim ou Nao ainda nao foram pressionados
 	if (!isset($_POST['btn']) and !isset($_POST['bts'])) {
 		
+		$conexao = new connection();
+		$conexao = $conexao->getConnection();
+		
+		$locacaoDAO = new locacaoDAO();
+		
+		$result = $locacaoDAO->selecionar("CpfCliente", "CpfCliente", $cpf, $conexao);
+		$n = mysqli_num_rows($result);
+		
 		// Imprime os botoes na tela
 		echo "<form method='post'><p> Tem certeza que deseja excluir o cliente com cpf: $value ?<br>
+				<p> Ele possui atualmente $n locacao/locacoes! </p>
 				<button type='submit' value=$cpf name='bts'>Sim</button>
 				<button type='submit' value=$cpf name='btn'>Nao</button></form>";
 	}
@@ -49,9 +59,24 @@ if ($key == 'btx' or $key == 'bts' or $key == 'btn') {
 // Caso nenhuma botao pertenca ao bloco acima, entrara no bloco abaixo responsavel pela alteracao
 else {
 	
+	$clienteDAO = new clienteDAO();
+	
+	$conexao = new connection();
+	$conexao = $conexao->getConnection();
+	
+	$result = $clienteDAO->selecionar("*", "Cpf", $cpf, $conexao);
+	$row = mysqli_fetch_array($result);
+	
+	$nomeAtual = $row['Nome'];
+	$emailAtual = $row['Email'];
+	
 	// Imprime campos para receber os dados de alteracao
 	echo "<h2>Digite somente nos campos que deseja alterar!</h2>
-		<form method='post'>Novo nome: <input type='text' name='nnome'><br>Novo email: <input type='email' name='nemail'><br><br>
+		<form method='post'>
+		<label> Nome atual: $nomeAtual </label>
+		<br>Novo nome: <input type='text' name='nnome'><br>
+		<br><label> Email atual: $emailAtual </label>
+		<br>Novo email: <input type='email' name='nemail'><br><br>
 		<button type='submit' value=$cpf name='btv'>Voltar</button>
 		<button type='submit' value=$cpf name='bta'>Alterar</button></form>";
 	

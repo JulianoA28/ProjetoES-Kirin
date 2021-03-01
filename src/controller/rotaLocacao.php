@@ -1,12 +1,15 @@
 <?php
 
 // Arquivo: rotaLocacao.php
-// Tem como base receber o id de uma locacao e enviar os dados para um controller que ira realizar as acoes
+// Tem como base receber o id de uma locacao e enviar os dados para um controller que ira realizar as acoes de exclusao ou alteracao
 
 // Importando os arquivos
 include_once '..\persistence\connection.php';
 include_once '..\persistence\locacaoDAO.php';
 include_once '..\controller\locacaoController.php';
+include_once '..\persistence\clienteDAO.php';
+include_once '..\persistence\livrolocadoDAO.php';
+include_once '..\persistence\livroDAO.php';
 
 // Guardando o
 foreach($_POST as $key=>$value);
@@ -53,28 +56,56 @@ else {
 	$conexao = new connection();
 	$conexao = $conexao->getConnection();
 	
-	// Criando um locacaoDAO
 	$locacaoDAO = new locacaoDAO();
+	$clienteDAO = new clienteDAO();
+	$livrolocadoDAO = new livrolocadoDAO();
+	$livroDAO = new livroDAO();
+	
 	
 	// Realizando uma consulta e armazenando o resultado
-	$result = $locacaoDAO->selecionar("*", "Id", $id, $conexao);
-	$row = mysqli_fetch_array($result);
-	$listaLivros = $row['IdLivro'];
+	$resultLocacao = $locacaoDAO->selecionar("*", "Id", $id, $conexao);
+	$rowLocacao = mysqli_fetch_array($resultLocacao);
+	
+	$resultCliente = $clienteDAO->selecionar("*", "Cpf", $rowLocacao['CpfCliente'], $conexao);
+	$rowCliente = mysqli_fetch_array($resultCliente);
 	
 	// Imprime campos para receber os dados de alteracao
 	echo "<h2>Digite somente nos campos que deseja alterar!</h2>
-		<form method='post'>Novo cliente (CPF): <input type='text' name='ncpf'>
-		<br> Os IDs dos livros dessa locacao sao: ";
-	// Imprimindo os IDs dos livros atuais na locacao
-	foreach(explode(",", $row['IdLivro']) as $idLivro) {
-		echo "$idLivro - ";
+		<body>
+		<form action='alterarLocacao.php' method='post' id='form1'>Cliente atual: $rowCliente[Nome] - $rowCliente[Cpf]
+		<br>Novo cliente (CPF): <input type='text' name='ncpf' pattern=[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}><br>
+		<br> Data limite atual: $rowLocacao[DataLimite]
+		<br> Nova data limite: <input type=date name=ndata><br>";
+	
+	$resultLivrolocado = $livrolocadoDAO->selecionar("*", "IdLocacao", $rowLocacao['Id'], $conexao);
+	
+	$iLivro = 1;
+	while ($rowLivrolocado = mysqli_fetch_array($resultLivrolocado)) {
+		
+		$idLivro = $rowLivrolocado['IdLivro'];
+		$nomeLivro = $livroDAO->selecionar("Nome", $idLivro, $conexao);
+		$rowNomeLivro = mysqli_fetch_array($nomeLivro);
+		
+		$opcao = "opcao" . $iLivro;
+		$opcaoManter = "manter," . $idLivro;
+		$opcaoAlterar = "alterar," . $idLivro;
+		$opcaoDevolver = "devolver," . $idLivro;
+		echo "<br>$rowNomeLivro[Nome] : $idLivro <input type=text name=$iLivro pattern=[0-9]{6}>&nbsp;&nbsp;&nbsp;&nbsp;
+			<select name=$opcao>
+				<option value=$opcaoManter>Manter</option>
+				<option value=$opcaoAlterar>Alterar</option>
+				<option value=$opcaoDevolver>Devolver</option></select>";
+		
+		$iLivro = $iLivro + 1;
+		//Devolver<input type=radio name=$iLivro+p>";
+	
 	}
-	// Imprimindo os campos restantes e o botoes
-	echo "
-		<br>Novo(s) livro(s): <input type='text' name='nlivro'>
-		<br>Nova data: <input type='date' name='ndata'><br><br>
-		<button type='submit' value=$id name='btv'>Voltar</button>
-		<button type='submit' value=$id name='bta'>Alterar</button></form>";
+	echo "<div id=box><br></div>";
+	echo "<br><button type=button id=add>Adicionar livro</button>";
+	echo "<br><br><button type='submit' value=$id name='bta'>Alterar</button></form>";
+	echo "<form action='retornar.php' method='post'><button type='submit' value='consultarlocacao' name='bt'>Voltar</button></form>";
+	echo "<script src=script.js></script></body>";
+		
 		
 	// Botao Voltar
 	if (!isset($_POST['btv'])) {}
@@ -91,7 +122,6 @@ else {
 		
 		// Declarando variaveis
 		$cpf = null;
-		$livros = null;
 		$data = null;
 		$certo = false;
 		
@@ -120,7 +150,7 @@ else {
 		}
 		
 		// Tenta realizar a alteracao e emite a interface correspondente ao retorno
-		if(alterar($id, $cpf, $livros, $data)) {
+		if(alterar($id, $cpf, null, $data)) {
 			header('Location: ..\view\IS_AlterarLocacao.html');
 		}
 		else if ($certo) {
