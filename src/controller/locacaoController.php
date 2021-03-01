@@ -19,19 +19,6 @@ function excluir($id) {
 	$locacaoDAO = new locacaoDAO();
 	
 	//
-	$livroDAO = new livroDAO();
-	
-	//
-	$result = $locacaoDAO->selecionar("*", "Id", $id, $conexao);
-	$row = mysqli_fetch_array($result);
-	
-	//
-	$listaLivros = explode(",", $row['IdLivro']);
-	foreach($listaLivros as $idLivro) {
-		$livroDAO->desalocar($idLivro, $conexao);
-	}
-	
-	//
 	return $locacaoDAO->excluir($id, $conexao);
 	
 }
