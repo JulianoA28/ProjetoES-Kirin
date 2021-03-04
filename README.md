@@ -12,7 +12,7 @@ Um sistema utilizado por uma biblioteca para organizar a locação de livros.
 ##### Servidor
 - Apache - 2.4.46
 #### Teste
-- PHPUnit - 9.0.5
+- PHPUnit - 9.5.2
 - PHP 7.4.15
 
 ### REGRAS E PADRÕES DO USO DO GIT
