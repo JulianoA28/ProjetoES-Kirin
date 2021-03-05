@@ -70,41 +70,29 @@ class locacaoDAO {
 	function alterar($id, $cpf, $data, $conn) {
 		
 		// Inicializando o comando SQL
-		$sql = "UPDATE locacao ";
+		$sql = "";
 		
-		// Variavel para checagem
 		$checar = false;
-		
-		// Uma string para cada atributo alteravel
-		$strCpf = "";
-		$strData = "";
-		
-		// Checando se o CPF nao e null
-		if ($cpf != null) {
-			
-			// Caso nao, atribui o comando a sua string
-			$strCpf = "SET CpfCliente = '$cpf' ";
+
+		if ($cpf != null and $data != null) {
+			$sql = "UPDATE locacao SET CpfCliente = '$cpf', DataLimite = '$data' WHERE Id='$id'";
 			$checar = true;
 		}
-		
-		// Checando se a data nao e null
+		else if ($cpf != null) {
+			
+			$sql = "UPDATE locacao SET CpfCliente = '$cpf' WHERE Id='$id'";
+			$checar = true;
+		}
 		else if ($data != null) {
 			
-			// Caso nao, atribui o comando a sua string
-			$strData = "SET DataLimite = '$data' ";
+			$sql = "UPDATE locacao SET DataLimite = '$data' WHERE Id='$id'";
 			$checar = true;
 		}
-		
-		// Se checar for false, indica que todos parametros de alteracao sao null
+
 		if (!$checar) {
 			return false;
 		}
-		
-		// Caso nao
 		else {
-			
-			// Concatena-se todas strings
-			$sql = $sql . $strCpf . $strData . "WHERE Id='$id'";
 			
 			// Realizando a query
 			if ($conn->query($sql) == TRUE) {

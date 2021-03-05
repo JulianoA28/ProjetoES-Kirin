@@ -27,7 +27,10 @@ class livrolocadoDAO {
 		
 		$result = $conn->query($sql);
 		
-		return $result;
+		if ($result == TRUE) {
+			return $result;
+		}
+		return FALSE;
 		
 	}
 	

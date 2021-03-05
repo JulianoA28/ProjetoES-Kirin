@@ -86,14 +86,13 @@ else {
 		$nomeLivro = $livroDAO->selecionar("Nome", $idLivro, $conexao);
 		$rowNomeLivro = mysqli_fetch_array($nomeLivro);
 		
+		// Formato para passar as informacoes do livro
 		$opcao = "opcao" . $iLivro;
 		$opcaoManter = "manter," . $idLivro;
-		$opcaoAlterar = "alterar," . $idLivro;
 		$opcaoDevolver = "devolver," . $idLivro;
 		echo "<br>$rowNomeLivro[Nome] : $idLivro <input type=text name=$iLivro pattern=[0-9]{6}>&nbsp;&nbsp;&nbsp;&nbsp;
 			<select name=$opcao>
 				<option value=$opcaoManter>Manter</option>
-				<option value=$opcaoAlterar>Alterar</option>
 				<option value=$opcaoDevolver>Devolver</option></select>";
 		
 		$iLivro = $iLivro + 1;
@@ -113,50 +112,6 @@ else {
 	else {
 		// Envia de volta para a interface I_ConsultarLocacao
 		header('Location: ..\view\I_ConsultarLocacao.html');
-	}
-	
-	// Botao Alterar
-	if (!isset($_POST['bta'])) {}
-	// Se for pressionado entrara nesse bloco 'else'
-	else {
-		
-		// Declarando variaveis
-		$cpf = null;
-		$data = null;
-		$certo = false;
-		
-		// Campo cpf (do Cliente) - Realizando a checagem se nao esta vazio
-		if (!isset($_POST['ncpf'])) {}
-		// Se nao estiver vazio, realiza a atribuicao a variavel anteriormente declarada neste bloco
-		else {
-			$certo = true;
-			$cpf = $_POST['ncpf'];
-		}
-		
-		// Campo idLivro - Realizando a checagem se nao esta vazio
-		if (!isset($_POST['nlivro'])) {}
-		// Se nao estiver vazio, realiza a atribuicao a variavel anteriormente declarada neste bloco
-		else {
-			$certo = true;
-			$livros = $_POST['nlivro'];
-		}
-		
-		// Campo DataLimite - Realizando a checagem se nao esta vazio
-		if (!isset($_POST['ndata'])) {}
-		// Se nao estiver vazio, realiza a atribuicao a variavel anteriormente declarada neste bloco
-		else {
-			$certo = true;
-			$data = $_POST['ndata'];
-		}
-		
-		// Tenta realizar a alteracao e emite a interface correspondente ao retorno
-		if(alterar($id, $cpf, null, $data)) {
-			header('Location: ..\view\IS_AlterarLocacao.html');
-		}
-		else if ($certo) {
-			header('Location: ..\view\IE_AlterarLocacao.html');
-		}
-	
 	}
 
 }
