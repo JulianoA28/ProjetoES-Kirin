@@ -22,9 +22,9 @@ Deverá ser criado um issue, para cada nova funcionalidade/tarefa a ser feita. E
 #### Definições de Pastas
 ###### O Repositório possui algumas pastas:
 - Padrões Adotados: Uma pasta que contém um arquivo com os padrões adotados.
-- Requisitos: Pasta principal da documentação com o Documento de Requisitos e Diagramas.
-- src: Pasta destinada ao código do sistema.
-- teste: Testes a serem feitos utilizando PHPUnit
+- Requisitos: Pasta principal da documentação com o Documento de Requisitos, Diagramas (Classe, Sequência e Implantação) e Modelo Lógico do Banco de Dados.
+- src: Pasta destinada ao código do sistema (inclui também o script do Banco de Dados).
+- teste: Inclui testes dos PHPUnit, Casos de Teste
 
 #### Uso de Branches
 O projeto terá foco no uso do branch ```main``` 
