@@ -24,6 +24,7 @@ Um sistema bibliotecário que permite que os funcionários se cadastrem para ace
 #### Teste
 - PHPUnit - 9.5.2
 - PHP 7.4.15
+- Python 3.8.5
 
 ### REGRAS E PADRÕES DO USO DO GIT
 #### Criação de Issues
