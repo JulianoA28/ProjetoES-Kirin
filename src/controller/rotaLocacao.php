@@ -70,7 +70,7 @@ else {
 	$rowCliente = mysqli_fetch_array($resultCliente);
 	
 	// Imprime campos para receber os dados de alteracao
-	echo "<h2>Digite somente nos campos que deseja alterar!</h2>
+	echo "<h2>Utilize somente os campos que deseja alterar!</h2>
 		<body>
 		<form action='alterarLocacao.php' method='post' id='form1'>Cliente atual: $rowCliente[Nome] - $rowCliente[Cpf]
 		<br>Novo cliente (CPF): <input type='text' name='ncpf' pattern=[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}><br>
@@ -86,17 +86,16 @@ else {
 		$nomeLivro = $livroDAO->selecionar("Nome", $idLivro, $conexao);
 		$rowNomeLivro = mysqli_fetch_array($nomeLivro);
 		
-		// Formato para passar as informacoes do livro
+		// Formato para passar as informacoes do livro - <input type=text name=$iLivro pattern=[0-9]{6}>
 		$opcao = "opcao" . $iLivro;
 		$opcaoManter = "manter," . $idLivro;
 		$opcaoDevolver = "devolver," . $idLivro;
-		echo "<br>$rowNomeLivro[Nome] : $idLivro <input type=text name=$iLivro pattern=[0-9]{6}>&nbsp;&nbsp;&nbsp;&nbsp;
+		echo "<br>$rowNomeLivro[Nome] : $idLivro&nbsp;&nbsp;-&nbsp;
 			<select name=$opcao>
 				<option value=$opcaoManter>Manter</option>
-				<option value=$opcaoDevolver>Devolver</option></select>";
+				<option value=$opcaoDevolver>Devolver</option></select><br>";
 		
 		$iLivro = $iLivro + 1;
-		//Devolver<input type=radio name=$iLivro+p>";
 	
 	}
 	echo "<div id=box><br></div>";

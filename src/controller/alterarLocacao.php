@@ -68,8 +68,6 @@ if ($checagemCpf and $checagemData) {
 	$i = 1;
 	while ($row = mysqli_fetch_array($resultLivrolocado)) {
 		
-		echo "$row[IdLivro] -";
-		
 		// Pegando o valor do form (arquivo rotaLocacao.php)
 		// opcao,idLivro
 		// Opcao -> manter, devolver ou alterar
@@ -78,15 +76,26 @@ if ($checagemCpf and $checagemData) {
 		$opcao = array_pop($array);
 		
 		if ($opcao == "devolver") {
-			$livrolocadoDAO->excluir($idLivro, $conexao);
+			if ($livrolocadoDAO->excluir($idLivro, $conexao)) {
+				echo "<h4> Livro de ID $idLivro devolvido com sucesso!</h4>";
+			}
 			$livroDAO->desalocar($idLivro, $conexao);
+			
 		}
 		else if ($opcao == "manter") {
-
-			$livrolocadoDAO->excluir($idLivro, $conexao);
-				
-			$livrolocado = new Livrolocado($id, $idLivro, $cpf);
-			$livrolocadoDAO->inserir($livrolocado, $conexao);
+			
+			if ($cpf != $rowLocacao['CpfCliente']) {
+				if (!$livrolocadoDAO->alterar($cpf, $id, $conexao)) {
+					echo "<h4>Erro ao alterar CPF no livro de ID $idLivro</h4>";
+				}
+				else {
+					echo "<h4>CPF alterado no livro de ID $idLivro</h4>";
+				}
+			
+			}
+			else {
+				echo "<h4>Livro de ID $idLivro mantido com sucesso!</h4>";
+			}
 			
 		}
 		$i = $i + 1;
@@ -99,6 +108,7 @@ if ($checagemCpf and $checagemData) {
 			break;
 		}
 		else {
+			// Recebendo o ID do livro e checando se esta devidamente cadastrado
 			$idLivro = $_POST[$pos];
 			$resultLivro = $livroDAO->selecionar("*", $idLivro, $conexao);
 			$num = mysqli_num_rows($resultLivro);
@@ -106,10 +116,24 @@ if ($checagemCpf and $checagemData) {
 				$rowLivro = mysqli_fetch_array($resultLivro);
 				if (!$rowLivro['Locado']) {
 					$livrolocado = new Livrolocado($id, $idLivro, $cpfCliente);
-					$livrolocadoDAO->inserir($livrolocado, $conexao);
+					if ($livrolocadoDAO->inserir($livrolocado, $conexao)) {
+						echo "<h4>$idLivro foi locado com sucesso!</h4>";
 					$livroDAO->locar($idLivro, $conexao);
+					}
+				}
+				else {
+					echo "<h4>$rowLivro[Id] ja esta locado!</h4>";
 				}
 			
+			}
+			else {
+				if (strlen($idLivro) != 6) {
+					echo "<h4> O ID $idLivro nao esta no formato adequado! </h4>";
+				}
+				else {
+					echo "<h4> O ID $idLivro nao esta cadastrado! </h4>";
+				}
+				
 			}
 			
 		}
@@ -118,6 +142,7 @@ if ($checagemCpf and $checagemData) {
 	echo "<form action='retornar.php' method='post'><button type='submit' value='consultarlocacao' name='bt'>Voltar</button></form>";
 	
 }
+// Erro detectado
 else {
 	$mensagem = "";
 	if (!$checagemCpf and !$checagemData) {

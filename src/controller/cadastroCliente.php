@@ -55,7 +55,7 @@ if ($cadastradoCpf or $cadastradoEmail) {
 else {
 	
 	if ($clienteDAO->inserir($cliente, $conexao)) {
-		$mensagem = "Usuário cadastrado com sucesso!";
+		$mensagem = "Cliente cadastrado com sucesso!";
 	}
 	else {
 		$mensagem = "Erro no cadastro! Tente novamente";

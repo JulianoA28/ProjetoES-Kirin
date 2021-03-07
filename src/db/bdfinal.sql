@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Mar-2021 às 21:47
+-- Tempo de geração: 21-Fev-2021 às 14:02
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 8.0.1
 
@@ -38,10 +38,11 @@ CREATE TABLE `cliente` (
 --
 
 INSERT INTO `cliente` (`Nome`, `Email`, `Cpf`) VALUES
-('Arlindo', 'arlingo@gmail.br', '123.444.555-79'),
-('Rogerio', 'Rogerio11@hotmail.com', '123.456.789-04'),
+('Julia', 'julia@gmail.br', '123.456.789-01'),
+('Julianoea', 'julianoea@hotmail.com', '123.456.789-02'),
+('Juliano', 'juliano@gmail.com', '123.456.789-10'),
 ('JulianoAndrade', 'juliano@hotmail.com', '123.456.789-34'),
-('Julia', 'julia@gmail.br', '123.456.789-55');
+('Julia123', '123123@ttt.br', '333.123.345-88');
 
 -- --------------------------------------------------------
 
@@ -61,14 +62,12 @@ CREATE TABLE `funcionario` (
 --
 
 INSERT INTO `funcionario` (`Nome`, `Email`, `Senha`, `Cpf`) VALUES
-('Julia', 'julia@gmail.br555', '123', '123.456.789-01'),
 ('Julia', 'julia@gmail.br', '1231234', '123.456.789-02'),
 ('asdasd', 'qqq@asd.gh', '123', '123.456.789-03'),
 ('Julia', 'julia@gmail.br141243124', '123', '123.456.789-08'),
 ('Juliano', 'julianoeagodinho6@gmail.com', '123', '123.456.789-11'),
 ('asd', 'julia@gmail.br12', '12345', '123.456.789-34'),
-('Julia222', 'julia@gmail.br1123123', '123123123', '123.456.789-66'),
-('qwerty', 'julia@gmail.br1hh', '123', '333.456.789-01');
+('Julia222', 'julia@gmail.br1123123', '123123123', '123.456.789-66');
 
 -- --------------------------------------------------------
 
@@ -93,37 +92,15 @@ INSERT INTO `livro` (`Nome`, `Autor`, `Editora`, `Id`, `Locado`) VALUES
 ('Calculo 1', 'James', 'Noite', 100001, 1),
 ('Calculo 3', 'James', 'Noite', 100002, 1),
 ('Calculo 4', 'James', 'Noite', 100003, 1),
-('Calculo Numerico', 'Jone', 'Noite', 100004, 0),
-('Arquitetura de Computadores', 'Roger', 'Dia', 100005, 0),
-('Arquitetura de Computadores II', 'Roger', 'Dia', 100006, 0),
-('O Cavaleiro dos Sete Reinos', 'George', 'Tarde', 100007, 0),
-('Elden Ring', 'Miyazaki', 'From', 100008, 0),
-('O Flagelo de Lordaeron', 'Martin', 'Blizzard', 100009, 0),
-('O Flagelo de Lordaeron 2', 'Martin', 'Blizzard', 100010, 0),
-('Dalaran', 'Martin', 'Blizzard', 100011, 0),
-('Rotas da selva', 'Rock', 'Riot', 100012, 0);
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `livrolocado`
---
-
-CREATE TABLE `livrolocado` (
-  `IdLocacao` int(5) NOT NULL,
-  `IdLivro` int(6) NOT NULL,
-  `CpfCliente` varchar(14) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `livrolocado`
---
-
-INSERT INTO `livrolocado` (`IdLocacao`, `IdLivro`, `CpfCliente`) VALUES
-(10073, 100003, '123.456.789-04'),
-(10073, 100001, '123.456.789-04'),
-(10073, 100000, '123.456.789-04'),
-(10073, 100002, '123.456.789-04');
+('Calculo Numerico', 'Jone', 'Noite', 100004, 1),
+('Arquitetura de Computadores', 'Roger', 'Dia', 100005, 1),
+('Arquitetura de Computadores II', 'Roger', 'Dia', 100006, 1),
+('O Cavaleiro dos Sete Reinos', 'George', 'Tarde', 100007, 1),
+('Elden Ring', 'Miyazaki', 'From', 100008, 1),
+('O Flagelo de Lordaeron', 'Martin', 'Blizzard', 100009, 1),
+('O Flagelo de Lordaeron 2', 'Martin', 'Blizzard', 100010, 1),
+('Dalaran', 'Martin', 'Blizzard', 100011, 1),
+('Rotas da selva', 'Rock', 'Riot', 100012, 1);
 
 -- --------------------------------------------------------
 
@@ -134,6 +111,7 @@ INSERT INTO `livrolocado` (`IdLocacao`, `IdLivro`, `CpfCliente`) VALUES
 CREATE TABLE `locacao` (
   `Id` int(5) NOT NULL,
   `CpfCliente` varchar(14) NOT NULL,
+  `IdLivro` varchar(34) NOT NULL,
   `DataLimite` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -141,8 +119,12 @@ CREATE TABLE `locacao` (
 -- Extraindo dados da tabela `locacao`
 --
 
-INSERT INTO `locacao` (`Id`, `CpfCliente`, `DataLimite`) VALUES
-(10073, '123.456.789-04', '2021-03-19');
+INSERT INTO `locacao` (`Id`, `CpfCliente`, `IdLivro`, `DataLimite`) VALUES
+(10022, '123.456.789-01', '100001,100002', '2021-02-18'),
+(10023, '123.456.789-02', '100003,100004,100005,100006', '2021-02-28'),
+(10024, '123.456.789-01', '100007,100008,100009,100010,100011', '2021-02-16'),
+(10025, '123.456.789-01', '100012', '2021-02-26'),
+(10026, '123.456.789-01', '100000', '2021-02-19');
 
 --
 -- Índices para tabelas despejadas
@@ -167,19 +149,10 @@ ALTER TABLE `livro`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Índices para tabela `livrolocado`
---
-ALTER TABLE `livrolocado`
-  ADD KEY `Cpf` (`CpfCliente`),
-  ADD KEY `IdLivro` (`IdLivro`),
-  ADD KEY `IdLocacao` (`IdLocacao`);
-
---
 -- Índices para tabela `locacao`
 --
 ALTER TABLE `locacao`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `CpfLoc` (`CpfCliente`);
+  ADD PRIMARY KEY (`Id`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -195,24 +168,7 @@ ALTER TABLE `livro`
 -- AUTO_INCREMENT de tabela `locacao`
 --
 ALTER TABLE `locacao`
-  MODIFY `Id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10075;
-
---
--- Restrições para despejos de tabelas
---
-
---
--- Limitadores para a tabela `livrolocado`
---
-ALTER TABLE `livrolocado`
-  ADD CONSTRAINT `IdLivro` FOREIGN KEY (`IdLivro`) REFERENCES `livro` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `IdLocacao` FOREIGN KEY (`IdLocacao`) REFERENCES `locacao` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Limitadores para a tabela `locacao`
---
-ALTER TABLE `locacao`
-  ADD CONSTRAINT `CpfLoc` FOREIGN KEY (`CpfCliente`) REFERENCES `cliente` (`Cpf`) ON DELETE CASCADE ON UPDATE CASCADE;
+  MODIFY `Id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10027;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

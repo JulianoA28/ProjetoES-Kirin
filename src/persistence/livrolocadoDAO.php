@@ -34,6 +34,17 @@ class livrolocadoDAO {
 		
 	}
 	
+	function alterar($valor1, $valor2, $conn) {
+		
+		$sql = "UPDATE livrolocado SET CpfCliente='$valor1' WHERE IdLocacao=$valor2";
+		
+		if ($conn->query($sql) == TRUE) {
+			return TRUE;
+		}
+		return FALSE;
+		
+	}
+	
 	function excluir($idLivro, $conn) {
 		
 		$sql = "DELETE FROM livrolocado WHERE IdLivro=$idLivro";
