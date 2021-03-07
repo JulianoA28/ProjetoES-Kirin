@@ -68,6 +68,7 @@ if ($certo) {
 	
 }
 else {
+	echo "<h2> Por favor tente cadastrar novamente! </h2>";
 	echo "$mensagemErro";
 }
 echo "<form action='retornar.php' method='post'><br><button type='submit' value='inicial' name='bt'>Voltar</button>";
