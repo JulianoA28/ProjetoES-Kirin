@@ -1,0 +1,319 @@
+{
+  "id": "41caf9ee-cb5d-4129-8845-f51759dc2d57",
+  "version": "2.0",
+  "name": "Projeto188",
+  "url": "http://localhost/Projeto/src/view/I_ConsultarCliente.html",
+  "tests": [{
+    "id": "a62b79af-a17e-4319-9a31-6dc12f869692",
+    "name": "Cadastrar Cliente",
+    "commands": [{
+      "id": "8cd124e8-e17f-4d93-ae36-cbf7e332515a",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Projeto/src/view/I_Inicial.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bcbbf731-f40d-4de2-bf3d-61cae9664ed2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1058x810",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "62708a7e-4064-42f0-98f3-4d918533a421",
+      "comment": "",
+      "command": "click",
+      "target": "css=.center:nth-child(1) > .botao:nth-child(2)",
+      "targets": [
+        ["css=.center:nth-child(1) > .botao:nth-child(2)", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Cadastrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6eac733e-d8a4-4494-ace8-398eff6b69d7",
+      "comment": "",
+      "command": "click",
+      "target": "name=cnome",
+      "targets": [
+        ["name=cnome", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='cnome']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1304f4b7-7adb-40f5-86f3-1e0e092f9cb6",
+      "comment": "",
+      "command": "type",
+      "target": "name=cnome",
+      "targets": [
+        ["name=cnome", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='cnome']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "JulianoAndrade"
+    }, {
+      "id": "ee91cd1c-d13c-41b4-bb9a-02b4e64654d9",
+      "comment": "",
+      "command": "type",
+      "target": "name=cemail",
+      "targets": [
+        ["name=cemail", "name"],
+        ["css=input:nth-child(4)", "css:finder"],
+        ["xpath=//input[@name='cemail']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "juliano@selenium.br"
+    }, {
+      "id": "94bfab2a-9e0d-4f16-a551-d7472111cd71",
+      "comment": "",
+      "command": "type",
+      "target": "name=ccpf",
+      "targets": [
+        ["name=ccpf", "name"],
+        ["css=input:nth-child(7)", "css:finder"],
+        ["xpath=//input[@name='ccpf']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "123.456.788-01"
+    }, {
+      "id": "461ea1d7-d812-48b4-ac3d-47acdcd70db7",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(10)",
+      "targets": [
+        ["css=input:nth-child(10)", "css:finder"],
+        ["xpath=//input[@value='Cadastrar']", "xpath:attributes"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cd112475-d4d1-499b-b6e8-617fd0403b58",
+      "comment": "",
+      "command": "click",
+      "target": "name=bt",
+      "targets": [
+        ["name=bt", "name"],
+        ["css=button", "css:finder"],
+        ["xpath=//button[@name='bt']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Voltar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e72d67a6-ba47-4435-912b-8bd58d94398f",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Voltar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "5fd18445-ce64-43ea-8ec7-36fd885aae69",
+    "name": "Consultar Cliente",
+    "commands": [{
+      "id": "1669f5b1-dad9-4539-b437-3d22c783937d",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Projeto/src/view/I_Inicial.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "29e00379-8502-49f9-aa9d-fc3a02145e8e",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1060x812",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1f197a62-d12b-47b7-a8fb-9fa7650c391c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.center:nth-child(1) > .botao:nth-child(4)",
+      "targets": [
+        ["css=.center:nth-child(1) > .botao:nth-child(4)", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Consultar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c87a9490-11eb-4b9f-847d-1a9d67971aaf",
+      "comment": "",
+      "command": "click",
+      "target": "id=dados",
+      "targets": [
+        ["id=dados", "id"],
+        ["name=dados", "name"],
+        ["css=#dados", "css:finder"],
+        ["xpath=//select[@id='dados']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f65f0aa3-e96b-44c1-af48-0686f9b748f2",
+      "comment": "",
+      "command": "select",
+      "target": "id=dados",
+      "targets": [],
+      "value": "label=Cpf"
+    }, {
+      "id": "b8ea2bad-7508-4171-b1c9-3c78dd636357",
+      "comment": "",
+      "command": "click",
+      "target": "id=dados",
+      "targets": [
+        ["id=dados", "id"],
+        ["name=dados", "name"],
+        ["css=#dados", "css:finder"],
+        ["xpath=//select[@id='dados']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0285de18-fe99-4db8-adb6-0ead6719d102",
+      "comment": "",
+      "command": "click",
+      "target": "id=d",
+      "targets": [
+        ["id=d", "id"],
+        ["css=#d", "css:finder"],
+        ["xpath=//input[@id='d']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b0fcd485-8e30-4ba4-b7af-43aa795d006d",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(5)",
+      "targets": [
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=//input[@value='Pronto']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1be8ff66-ef68-408a-8c22-3e08cd495ec9",
+      "comment": "",
+      "command": "click",
+      "target": "name=bt",
+      "targets": [
+        ["name=bt", "name"],
+        ["css=form:nth-child(4) > button", "css:finder"],
+        ["xpath=//button[@name='bt']", "xpath:attributes"],
+        ["xpath=//body/form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Voltar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "192427af-86b6-4865-a741-2746228f3fed",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Voltar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "566668c7-6fdf-4b8d-aa5b-2245a2270fe0",
+    "name": "Excluir Cliente",
+    "commands": [{
+      "id": "985919a6-e8f3-4f65-97d9-90aa15fa1935",
+      "comment": "",
+      "command": "open",
+      "target": "http://localhost/Projeto/src/view/I_ConsultarCliente.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "224a7673-f907-4681-8095-9aa8be0a115b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1060x812",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "527ac11b-bd3f-4414-a01c-72aa96ed54b7",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(5)",
+      "targets": [
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=//input[@value='Pronto']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1188c273-7e2f-45f8-8a31-e3f3e772ca89",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(5) button:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(5) button:nth-child(1)", "css:finder"],
+        ["xpath=(//button[@name='btx'])[4]", "xpath:attributes"],
+        ["xpath=//tr[5]/td[4]/form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b1b591b-be22-4d6b-8242-99e7c50cf6c8",
+      "comment": "",
+      "command": "click",
+      "target": "name=bts",
+      "targets": [
+        ["name=bts", "name"],
+        ["css=button:nth-child(3)", "css:finder"],
+        ["xpath=//button[@name='bts']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Sim')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fa0bf7fd-dcda-4d6f-8318-17fc514854ef",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Voltar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "210adbe2-6483-4d50-bf3b-accb4add72c3",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='button']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Voltar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "cc0c7cc6-4a72-4dc7-af63-6fc688220796",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["a62b79af-a17e-4319-9a31-6dc12f869692"]
+  }],
+  "urls": ["http://localhost/Projeto/src/view/I_Inicial.html", "http://localhost/Projeto/src/view/I_ConsultarCliente.html"],
+  "plugins": []
+}
