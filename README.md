@@ -30,13 +30,26 @@ Um sistema bibliotecário que permite que os funcionários se cadastrem para ace
 Deverá ser criado um issue, para cada nova funcionalidade/tarefa a ser feita. E deverá ser atribuido a esse issue uma fase (Projects).
 
 #### Definições de Pastas
-###### O Repositório possui algumas pastas:
-- Padrões Adotados: 
-* asdasdasd
-* asdasd
-- Requisitos: Pasta principal da documentação com o Documento de Requisitos, Diagramas (Classe, Sequência e Implantação) e Modelo Lógico do Banco de Dados.
-- src: Pasta destinada ao código do sistema (inclui também o script do Banco de Dados).
-- teste: Inclui testes dos PHPUnit, Casos de Teste
+##### O Repositório possui algumas pastas:
+###### Padrões Adotados: 
+* Um arquivo com Regras de Verificação e Análise de Requisitos
+###### Requisitos:
+* Documento de Requisitos
+* Diagramas de Classe
+* Diagramas de Sequência
+* Diagrama de Implantação
+* Modelo Lógico do Banco de Dados
+###### src (Código fonte do software no modelo MVC):
+* controller
+* db (Script SQL)
+* images
+* model
+* persistence
+* view
+###### teste:
+* PHPUnit (Testes realizados)
+* Selenium (Scripts em Python)
+* Casos de Teste
 
 #### Uso de Branches
 O projeto terá foco no uso do branch ```main``` 
