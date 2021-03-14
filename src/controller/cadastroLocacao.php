@@ -2,7 +2,7 @@
 <head>
 <link rel="stylesheet" href="..\view\estilo.css">
 </head>
-<h1 class="center">Cadastro de Cliente
+<h1 class="center">Cadastro da Locacao
 <?php
 
 $num = $_POST['dados'];

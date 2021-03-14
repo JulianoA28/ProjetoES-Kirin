@@ -56,9 +56,11 @@ else {
 if ($checagemCpf and $checagemData) {
 	
 	$locacaoDAO->alterar($id, $cpf, $data, $conexao);
-	
-	if ($cpf == null) {
-		$cpf = $rowLocacao['CpfCliente'];
+	if ($cpf != null) {
+		echo "<h2>CPF da Locacao alterado!</h2>";
+	}
+	if ($data != null) {
+		echo "<h2>Data Limite alterada!</h2>";
 	}
 	
 	$resultLivrolocado = $livrolocadoDAO->selecionar("*", "IdLocacao", $id, $conexao);
@@ -82,22 +84,6 @@ if ($checagemCpf and $checagemData) {
 			$livroDAO->desalocar($idLivro, $conexao);
 			
 		}
-		else if ($opcao == "manter") {
-			
-			if ($cpf != $rowLocacao['CpfCliente']) {
-				if (!$livrolocadoDAO->alterar($cpf, $id, $conexao)) {
-					echo "<h4>Erro ao alterar CPF no livro de ID $idLivro</h4>";
-				}
-				else {
-					echo "<h4>CPF alterado no livro de ID $idLivro</h4>";
-				}
-			
-			}
-			else {
-				echo "<h4>Livro de ID $idLivro mantido com sucesso!</h4>";
-			}
-			
-		}
 		$i = $i + 1;
 	}
 	
@@ -115,7 +101,7 @@ if ($checagemCpf and $checagemData) {
 			if ($num == 1) {
 				$rowLivro = mysqli_fetch_array($resultLivro);
 				if (!$rowLivro['Locado']) {
-					$livrolocado = new Livrolocado($id, $idLivro, $cpfCliente);
+					$livrolocado = new Livrolocado($id, $idLivro);
 					if ($livrolocadoDAO->inserir($livrolocado, $conexao)) {
 						echo "<h4>$idLivro foi locado com sucesso!</h4>";
 					$livroDAO->locar($idLivro, $conexao);

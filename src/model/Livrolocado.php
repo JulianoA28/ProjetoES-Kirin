@@ -4,12 +4,10 @@ class Livrolocado {
 	
 	private $idLocacao;
 	private $idLivro;
-	private $cpfCliente;
 	
-	function __construct($vidLocacao, $vidLivro, $vcpfCliente) {
+	function __construct($vidLocacao, $vidLivro) {
 		$this->idLocacao = $vidLocacao;
 		$this->idLivro = $vidLivro;
-		$this->cpfCliente = $vcpfCliente;
 	
 	}
 	
@@ -21,11 +19,6 @@ class Livrolocado {
 	// Get Data
 	function getIdLivro() {
 		return $this->idLivro;
-	}
-	
-	//
-	function getCpfCliente() {
-		return $this->cpfCliente;
 	}
 	
 }

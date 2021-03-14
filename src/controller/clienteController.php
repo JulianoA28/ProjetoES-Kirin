@@ -17,20 +17,26 @@ function excluir($cpf) {
 	
 	$livroDAO = new livroDAO();
 	
+	$locacaoDAO = new locacaoDAO();
+	
 	$livrolocadoDAO = new livrolocadoDAO();
 	
-	$result = $livrolocadoDAO->selecionar("*", "CpfCliente", $cpf, $conexao);
+	$result = $locacaoDAO->selecionar("*", "CpfCliente", $cpf, $conexao);
 	while($row = mysqli_fetch_array($result)) {
 		
-		$idLivro = $row['IdLivro'];
+		$result2 = $livrolocadoDAO->selecionar("*", "IdLocacao", $row['Id'], $conexao);
 		
 		// Desalocando os livros
-		$livroDAO->desalocar($idLivro, $conexao);
+		while ($row2 = mysqli_fetch_array($result2)) {
+			
+			$idLivro = $row2['IdLivro'];
+		
+			$livroDAO->desalocar($idLivro, $conexao);
+			
+		}
 	
 	}
-		
 	
-	// Criando um cliente DAO
 	$cDAO = new clienteDAO();
 	
 	return $cDAO->excluir($cpf, $conexao);

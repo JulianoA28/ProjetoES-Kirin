@@ -2,6 +2,7 @@
 
 include_once '..\persistence\connection.php';
 include_once '..\persistence\locacaoDAO.php';
+include_once '..\persistence\clienteDAO.php';
 include_once '..\persistence\livroDAO.php';
 include_once '..\persistence\livrolocadoDAO.php';
 include_once '..\model\Locacao.php';
@@ -28,7 +29,7 @@ for ($i = 1; $i <= $num; $i++) {
 	$row = mysqli_fetch_array($result);
 	if ($row == null) {
 		$certo = false;
-		$mensagemErro = $mensagemErro . "$idLivro e invalido!&nbsp;";
+		$mensagemErro = $mensagemErro . "$idLivro nao esta cadastrado!&nbsp;";
 	}
 	else if ($row['Locado']) {
 		$certo = false;
@@ -36,8 +37,11 @@ for ($i = 1; $i <= $num; $i++) {
 	}
 	
 }
-
-if ($certo) {
+// Checagem do CPF
+$clienteDAO = new clienteDAO;
+$cpfCliente = $_POST['ccpf'];
+$cadastradoCpf = $clienteDAO->selecionar("Cpf", "Cpf", $cpfCliente, $conexao);
+if ($certo and $cadastradoCpf) {
 	
 	$erro = false;
 	
@@ -52,7 +56,7 @@ if ($certo) {
 		
 		$idLivro = $_POST[$i];
 		
-		$livrolocado = new Livrolocado($idLocacao, $idLivro, $cpfCliente);
+		$livrolocado = new Livrolocado($idLocacao, $idLivro);
 		
 		if ($livrolocadoDAO->inserir($livrolocado, $conexao)) {
 			echo "<p>$idLivro foi cadastrado com sucesso!";
@@ -61,7 +65,7 @@ if ($certo) {
 			
 		}
 		else {
-			echo "<p>$idLivro nao foi cadastrado!";
+			echo "<h4>$idLivro nao foi cadastrado! Por favor cheque o CPF</h4>";
 		}
 		
 	}	
@@ -69,6 +73,9 @@ if ($certo) {
 }
 else {
 	echo "<h2> Por favor tente cadastrar novamente! </h2>";
+	if (!$cadastradoCpf) {
+		$mensagemErro = "CPF nao cadastrado!";
+	}
 	echo "$mensagemErro";
 }
 echo "<form action='retornar.php' method='post'><br><button type='submit' value='inicial' name='bt'>Voltar</button>";
