@@ -1,6 +1,6 @@
 <?php
 
-require_once('..\src\model\Locacao.php');
+require_once('..\..\src\model\Locacao.php');
 
 	class TestLocacao extends PHPUnit\Framework\TestCase {
 		

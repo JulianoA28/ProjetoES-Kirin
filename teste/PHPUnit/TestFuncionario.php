@@ -1,6 +1,6 @@
 <?php
 
-require_once('..\src\model\Funcionario.php');
+require_once('..\..\src\model\Funcionario.php');
 
 	class TestFuncionario extends PHPUnit\Framework\TestCase {
 			

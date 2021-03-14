@@ -1,6 +1,6 @@
 <?php
 
-require_once('..\src\model\Cliente.php');
+require_once('..\..\src\model\Cliente.php');
 
 	class TestCliente extends PHPUnit\Framework\TestCase {
 		

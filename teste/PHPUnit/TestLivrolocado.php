@@ -1,6 +1,6 @@
 <?php
 
-require_once('..\src\model\Livrolocado.php');
+require_once('..\..\src\model\Livrolocado.php');
 
 	class TestLivrolocado extends PHPUnit\Framework\TestCase {
 			
